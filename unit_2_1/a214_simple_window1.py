@@ -27,8 +27,9 @@ def num_included_check():
         if char.isdigit():
             upcase_lowcase_check()
         else:
-            result_label.config(text='Please include at least one number.')
-            ent_password.delete(0, "end")
+            pass
+    result_label.config(text='Please include at least one number.')
+    ent_password.delete(0, "end")            
 
 def upcase_lowcase_check():
     upper = 0
@@ -44,9 +45,9 @@ def upcase_lowcase_check():
         if lower and upper == 1:
             print('syyyyyymbols')
             symbol_check()
-    else:
-        result_label.config(text='Please include both a Captial and Lowercase letter.')
-        ent_password.delete(0, "end")
+        else:
+            result_label.config(text='Please include both a Captial and Lowercase letter.')
+            ent_password.delete(0, "end")
 
 def symbol_check():
     print('symbol check')
@@ -81,5 +82,3 @@ sign_up.pack(pady=5)
 
 # # #
 root.mainloop()
-
-#1 UPCASE, 1 LOWERCASE, SPECIAL CHARACTER, DIGIT 
