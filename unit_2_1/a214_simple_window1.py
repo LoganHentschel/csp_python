@@ -10,10 +10,8 @@ def login():
     ent_username.delete(0, "end")
 
 def password_validation():
-    character_amount_check()
-    num_included_check()
+    #character_amount_check()
     upcase_lowcase_check()
-    symbol_check()
 
 def character_amount_check():
     if len(ent_password.get()) < 8:
@@ -21,19 +19,33 @@ def character_amount_check():
         ent_password.delete(0, "end")
         ent_username.delete(0, "end")
     else:
-        login()
+        #num_included_check()
+        pass
 
 def num_included_check():
-    print(ent_password.isdigit())
+    print('num check')
+    #upcase_lowcase_check()
 
 def upcase_lowcase_check():
+    upper = 0
+    lower = 0
     print('upper lower check')
-    #for char in ent_password:
-        #if char upcas/owcase
-        #if true pass idk
+    for char in ent_password.get():
+        if upper  < 1:
+            if char.isupper():
+                upper += 1
+        if lower < 1:
+            if char.islower():
+                lower += 1
+    print(upper, lower, 'clear')
+            
+
+    #symbol_check()
+  
 
 def symbol_check():
     print('symbol check')
+    #login()
 
 # # #
 lbl_username = tk.Label(root, text='Username:')
