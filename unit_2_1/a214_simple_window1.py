@@ -28,27 +28,26 @@ def num_included_check():
         if char.isdigit():
             upcase_lowcase_check()
         else:
-            pass
-    result_label.config(text='Please include at least one number.')
-    ent_password.delete(0, "end")            
+            result_label.config(text='Please include at least one number.')
+            ent_password.delete(0, "end")
+            ent_username.delete(0, "end")            
 
 def upcase_lowcase_check():
     upper = 0
     lower = 0
-    print('checked nums')
+    print('checking case')
     for char in ent_password.get():
-        if upper  < 1:
             if char.isupper():
                 upper += 1
-        if lower < 1:
             if char.islower():
                 lower += 1
-        if lower and upper == 1:
-            print('syyyyyymbols')
-            symbol_check()
-        else:
-            result_label.config(text='Please include both a Captial and Lowercase letter.')
-            ent_password.delete(0, "end")
+    if lower and upper > 1:
+        print('upper lower both check out')
+        symbol_check()
+    else:
+        result_label.config(text='Please include both a Captial and Lowercase letter.')
+        ent_password.delete(0, "end")
+        ent_username.delete(0, "end")
 
 def symbol_check():
     print('symbol check')
@@ -57,6 +56,8 @@ def symbol_check():
             login()
         else:
             result_label.config(text='Please include a symbol.')
+            ent_password.delete(0, "end")
+            ent_username.delete(0, "end")
 
 # # #
 lbl_username = tk.Label(root, text='Username:')
