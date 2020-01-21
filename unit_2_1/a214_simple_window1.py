@@ -4,7 +4,7 @@ import tkinter as tk
 import string
 #
 root = tk.Tk()
-root.wm_geometry("400x250")
+root.wm_geometry("400x300")
 root.title('Authorization')
 # # #
 def login():
@@ -13,7 +13,7 @@ def login():
     ent_username.delete(0, "end")
 
 def password_validation():
-    
+    result_label.config(text='')
     character_amount_check()
     print(character_amount_check())
     upcase_lowcase_check()
@@ -26,6 +26,8 @@ def password_validation():
     if character_amount_check() and upcase_lowcase_check() and num_included_check() and symbol_check() == True:
         print('all clear')
         login()
+    else:
+        result_label.config(text='Please include each of the following in your password:\nAt least 8 Characters, 1 Uppercase and Lowercase letter,\n1 number, and 1 symbol.')
 
 
 def character_amount_check():
@@ -73,13 +75,15 @@ ent_password.pack(pady=5)
 
 #
 log_button = tk.Button(root, text="Login", command=password_validation)
-log_button.pack()
+log_button.pack(pady=5)
+#
+sign_up = tk.Button(root, text="Sign Up",)
+sign_up.pack(pady=5)
 #
 result_label = tk.Label(root)
 result_label.pack(pady=5)
 #
-sign_up = tk.Button(root, text="Sign Up",)
-sign_up.pack(pady=5)
+
 
 # # #
 root.mainloop()
