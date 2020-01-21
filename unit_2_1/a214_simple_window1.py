@@ -13,29 +13,27 @@ def login():
     ent_username.delete(0, "end")
 
 def password_validation():
-    characters = False
-    capital_lowercase = False
-    numbers = False
-    symbols = False
     
     character_amount_check()
-    print(characters)
+    print(character_amount_check())
     upcase_lowcase_check()
-    print(capital_lowercase)
+    print(upcase_lowcase_check())
     num_included_check()
-    print(numbers)
+    print( num_included_check())
     symbol_check()
-    print(symbols)
+    print(symbol_check())
     
-    #login()
+    if character_amount_check() and upcase_lowcase_check() and num_included_check() and symbol_check() == True:
+        print('all clear')
+        login()
 
 
-def character_amount_check(characters):
+def character_amount_check():
     if len(ent_password.get()) >= 8:
         return True
 # XXXXXXXXXXXXXXXXXX #
 
-def upcase_lowcase_check(capital_lowercase):
+def upcase_lowcase_check():
     upper = 0
     lower = 0
     for char in ent_password.get():
@@ -56,11 +54,9 @@ def num_included_check():
 
 # XXXXXXXXXXXXXXXXXX #
 def symbol_check():
-    result_label.config(text='')
-    print('symbol check')
     for char in ent_password.get():
         if char in string.punctuation:
-            Return True
+            return True
 
 # # #
 lbl_username = tk.Label(root, text='Username:')
