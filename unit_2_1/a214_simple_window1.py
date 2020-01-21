@@ -1,5 +1,4 @@
-#END GOAL: FULLY FUNCCTIONAL SECURE SIGNIN - fix bigs, verify base works: then implament signin
-#   a113_TR_simple_window1.py
+#END GOAL: FULLY FUNCCTIONAL SECURE SIGNIN - implament signin
 import tkinter as tk
 import string
 #
