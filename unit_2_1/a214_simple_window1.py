@@ -13,51 +13,54 @@ def login():
     ent_username.delete(0, "end")
 
 def password_validation():
+    characters = False
+    capital_lowercase = False
+    numbers = False
+    symbols = False
+    
     character_amount_check()
+    print(characters)
+    upcase_lowcase_check()
+    print(capital_lowercase)
+    num_included_check()
+    print(numbers)
+    symbol_check()
+    print(symbols)
+    
+    #login()
 
-def character_amount_check():
-    if len(ent_password.get()) < 8:
-        result_label.config(text='Please have at least 8 characters.')
-        ent_password.delete(0, "end")
-        ent_username.delete(0, "end")
-    else:
-        num_included_check()
 
-def num_included_check():
-    for char in ent_password.get():
-        if char.isdigit():
-            upcase_lowcase_check()
-        else:
-            result_label.config(text='Please include at least one number.')
-            ent_password.delete(0, "end")
-            ent_username.delete(0, "end")            
+def character_amount_check(characters):
+    if len(ent_password.get()) >= 8:
+        return True
+# XXXXXXXXXXXXXXXXXX #
 
-def upcase_lowcase_check():
+def upcase_lowcase_check(capital_lowercase):
     upper = 0
     lower = 0
-    print('checking case')
     for char in ent_password.get():
             if char.isupper():
                 upper += 1
             if char.islower():
                 lower += 1
-    if lower and upper > 1:
-        print('upper lower both check out')
-        symbol_check()
-    else:
-        result_label.config(text='Please include both a Captial and Lowercase letter.')
-        ent_password.delete(0, "end")
-        ent_username.delete(0, "end")
+    if upper >= 1:
+        if lower >= 1:
+            return True
 
+# XXXXXXXXXXXXXXXXXX #
+def num_included_check():
+    num_count = 0
+    for char in ent_password.get():
+        if char.isdigit():
+            return True  
+
+# XXXXXXXXXXXXXXXXXX #
 def symbol_check():
+    result_label.config(text='')
     print('symbol check')
     for char in ent_password.get():
         if char in string.punctuation:
-            login()
-        else:
-            result_label.config(text='Please include a symbol.')
-            ent_password.delete(0, "end")
-            ent_username.delete(0, "end")
+            Return True
 
 # # #
 lbl_username = tk.Label(root, text='Username:')
