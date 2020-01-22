@@ -1,7 +1,6 @@
 #END GOAL: FULLY FUNCCTIONAL SECURE SIGNIN - implament signin
 import tkinter as tk
 import string
-#import dictionary_learning 
 #
 root = tk.Tk()
 root.wm_geometry("400x300")
