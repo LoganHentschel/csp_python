@@ -1,30 +1,45 @@
 #END GOAL: FULLY FUNCCTIONAL SECURE SIGNIN - implament signin
 import tkinter as tk
 import string
+#import dictionary_learning 
 #
 root = tk.Tk()
 root.wm_geometry("400x300")
 root.title('Authorization')
+# # # # # # # 
+users = {}
 # # #
 def login():
-    print('Username:', ent_username.get(), '\n' 'Password:', ent_password.get())
-    ent_password.delete(0, "end")
-    ent_username.delete(0, "end")
+    if ent_username.get() in users and ent_password.get() == users[ent_username.get()]:
+        result_label.config(text="You have successfully logged in!")
+    else:
+        result_label.config(text="Login failed: Username or password incorrect.")
+    ent_password.delete(0, 'end')
+    ent_username.delete(0, 'end')
+
+def sign_up():
+    if ent_username.get() in users:
+        result_label.config(text='Username already exists. Please choose another.')
+        ent_password.delete(0, 'end')
+        ent_username.delete(0, 'end')
+    else:
+        password_validation()
+
+def final_sign_up():
+    users[ent_username.get()] = ent_password.get()
+    result_label.config(text='You have successfully signed up!')
+    ent_password.delete(0, 'end')
+    ent_username.delete(0, 'end')
 
 def password_validation():
     result_label.config(text='')
     character_amount_check()
-    print(character_amount_check())
     upcase_lowcase_check()
-    print(upcase_lowcase_check())
     num_included_check()
-    print( num_included_check())
     symbol_check()
-    print(symbol_check())
     
     if character_amount_check() and upcase_lowcase_check() and num_included_check() and symbol_check() == True:
-        print('all clear')
-        login()
+        final_sign_up()
     else:
         result_label.config(text='Please include each of the following in your password:\nAt least 8 Characters, 1 Uppercase and Lowercase letter,\n1 number, and 1 symbol.')
 
@@ -73,16 +88,15 @@ ent_password = tk.Entry(root, bd=3)
 ent_password.pack(pady=5)
 
 #
-log_button = tk.Button(root, text="Login", command=password_validation)
+log_button = tk.Button(root, text="Login", command=login)
 log_button.pack(pady=5)
 #
-sign_up = tk.Button(root, text="Sign Up",)
-sign_up.pack(pady=5)
+sign_up_button = tk.Button(root, text="Sign Up", command=sign_up)
+sign_up_button.pack(pady=5)
 #
 result_label = tk.Label(root)
 result_label.pack(pady=5)
 #
-
 
 # # #
 root.mainloop()
