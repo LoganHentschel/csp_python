@@ -1,4 +1,6 @@
-#calling the data file
+import matplotlib.pyplot as plt
+
+#retreiving the data file
 path = 'data_files/311_CSV_Raw_Data.csv'
 
 #opening & reading the data from the file - splitting the data at each new line
@@ -27,6 +29,7 @@ for line in data[1:]:
             temp2_list.append(var)
             counter = 0
 
+# # # # #
 ''' 
 #better way to sort out the data...
 for line in data[1:]:
@@ -44,7 +47,16 @@ for line in data[1:]:
     temp1_list.append(temp1)
     temp2_list.append(temp2)
 '''
-#printing the data to the terminal
-print(time_list, '\n')
-print(temp1_list, '\n')
-print(temp2_list)
+# # # # #
+plt.grid(b=None, which='major', axis='both')
+plt.grid(color='grey')
+
+plt.plot(time_list, temp1_list, c='blue')
+plt.plot(time_list, temp2_list, c='red')
+
+plt.title('3.1.1 Unknown Substance ')
+plt.xlabel('Time (Seconds)')
+plt.ylabel('Tempurature (Celcius)')
+
+# # #
+plt.show()
