@@ -14,13 +14,11 @@ data9_list = []
 data12_list = []
 data13_list = []
 data14_list = []
+
 # # #
-
-#print(data)
-
 for line in data[1:]:
 	split_line = line.split(',')
-    #
+	# # #
 	for line in data:
 		time_list.append(split_line[0])
 		data4_list.append(split_line[1])
@@ -29,6 +27,7 @@ for line in data[1:]:
 		data12_list.append(split_line[4])
 		data13_list.append(split_line[5])
 		data14_list.append(split_line[6])
+
 # # #
 plt.grid(b=None, which='major', axis='both')
 plt.grid(color='grey')
@@ -46,6 +45,4 @@ plt.ylabel('Tempurature (Celcius)')
 
 # # #
 plt.show()
-
-
 # # # # # # # # # #
