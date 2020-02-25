@@ -16,28 +16,29 @@ for line in data[1:]:
 	split_line = line.split(',')
 	# # #
 	for line in data:
-		time_list.append(split_line[0])
-		data_615nm_list.append(split_line[1])
-		data_525nm_list.append(split_line[2])
-		data_465nm_list.append(split_line[3])
+		time_list.append(float(split_line[0]))
+		data_615nm_list.append(float(split_line[1]))
+		data_525nm_list.append(float(split_line[2]))
+		data_465nm_list.append(float(split_line[3]))
 
 # # #
-plt.grid(b=None, which='major', axis='both')
-#plt.grid(color='grey')
+f, (ax1, ax2, ax3) = plt.subplots(3, 1, sharey=True)
+f.tight_layout(pad=3)
 
-plt.plot(time_list, data_615nm_list, c='red')
-plt.plot(time_list, data_525nm_list, c='green')
-plt.plot(time_list, data_465nm_list, c='blue')
-
-plt.title('Light Sensing')
+ax1.plot(time_list, data_615nm_list, c='red')
+ax1.set_title('615 nm')
+ax1.set(ylabel='Nanometers')
+#
+ax2.plot(time_list, data_525nm_list, c='blue')
+ax2.set_title('525 nm')
+ax2.set(ylabel='Nanometers')
+#
+ax3.plot(time_list, data_465nm_list, c='green')
+ax3.set_title('465 nm')
+ax3.set(ylabel='Nanometers')
+# #
 plt.xlabel('Time (Seconds)')
-plt.ylabel('light...?')
+
 
 # # #
 plt.show()
-
-
-# # # # #
-#fig, ax = pyplot.subplots(1,1)
-#ax.plot([[1,2,3], [4,5,6]])
-#pyplot.show()

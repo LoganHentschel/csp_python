@@ -20,13 +20,13 @@ for line in data[1:]:
 	split_line = line.split(',')
 	# # #
 	for line in data:
-		time_list.append(split_line[0])
-		data4_list.append(split_line[1])
-		data6_list.append(split_line[2])
-		data9_list.append(split_line[3])
-		data12_list.append(split_line[4])
-		data13_list.append(split_line[5])
-		data14_list.append(split_line[6])
+		time_list.append(float(split_line[0]))
+		data4_list.append(float(split_line[1]))
+		data6_list.append(float(split_line[2]))
+		data9_list.append(float(split_line[3]))
+		data12_list.append(float(split_line[4]))
+		data13_list.append(float(split_line[5]))
+		data14_list.append(float(split_line[6]))
 
 # # #
 plt.grid(b=None, which='major', axis='both')
