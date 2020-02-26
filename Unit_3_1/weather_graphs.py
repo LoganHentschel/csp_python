@@ -21,11 +21,12 @@ record_min_temp = [] #6
 record_max_temp = [] #7
 actual_precipitation = [] #10
 
+
 # # #
-for line in data[1:]:
+for n, line in enumerate(data[1:]):
     split_line = line.split(',')
     for variable in split_line:
-        date_list.append((split_line[0]))
+        date_list.append(n)
         actual_mean_temp.append(float(split_line[1]))
         actual_min_temp.append(float(split_line[2]))
         actual_max_temp.append(float(split_line[3]))
@@ -35,7 +36,6 @@ for line in data[1:]:
 # # # #
 fig, ax1 = plt.subplots(2, 3)
 fig.tight_layout(pad=3)
-plt.title('Weather')
 
 ax1[0][0].plot(date_list, actual_mean_temp, c='green')
 ax1[0][0].set_title('Actual Mean Temp')
