@@ -27,12 +27,11 @@ functions, and avoid the prompts.
 **** This example assumes the Go Direct sensor is connected via USB.
 
 '''
-
 import gdx #the gdx function calls are from a gdx.py file inside the gdx folder.
 gdx = gdx.gdx()
 
 gdx.open_usb()
-gdx.select_sensors([2,3])
+gdx.select_sensors()
 gdx.start() 
 
 for i in range(0,5):
