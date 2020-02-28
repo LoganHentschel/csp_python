@@ -1,0 +1,1 @@
+#read data directly from sensors; basicaly verneier but in python
