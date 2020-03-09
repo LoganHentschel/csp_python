@@ -1,0 +1,26 @@
+'''num1 = int(input(":"))
+num2 = int(input(":"))
+print(round(num1/num2+0.5))
+## someoneone must win the number of rounds equal to::: rounded((the number of rounds /2) +0.5)'''
+import turtle
+
+ttt = turtle.Turtle()
+
+ttt.begin_fill()
+ttt.color('royal blue','dark turquoise')
+#
+#ttt.forward(200)
+ttt.circle(50,180)
+'''ttt.forward(200)
+ttt.end_fill()
+#
+ttt.begin_fill()
+ttt.color('royal blue','aquamarine')
+ttt.circle(50)'''
+#
+ttt.end_fill()
+
+
+# ~~~~~~~~~~~~~~~~~~~ #
+screen = turtle.Screen()
+screen.mainloop()

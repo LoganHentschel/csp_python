@@ -1,0 +1,10 @@
+list1 = [cat, dog, bird]
+list2 = [dog, bird, rat]
+
+if cat in list1:
+    print(cat)
+
+if cat in list2:
+    print(dog)
+else:
+    print(no)
