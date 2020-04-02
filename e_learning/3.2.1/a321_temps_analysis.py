@@ -1,26 +1,25 @@
-# a321_temps_analysis.py
-# This program uses the pandas module to load a 2-dimensional data-sheet into a pandas DataFrame object
-# Then it will use the matplotlib module to plot a graph and a bar chart
+## The pandas and matplotlib modules are used to create a graph of the data
+## -- pandas loads the data sheets into it's own DataFrame objects
+## -- whole matplotlib plots the graph and bar chart
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Load in the data with read_csv(), identifying the header row
+## Loads in the data with read_csv(), identifying the header row
 temp_data = pd.read_csv("temperature_data.csv", header=0)   
 
-# TODO #2: Use matplotlib to make a line graph
-plt.plot(temp_data['Year'], temp_data['Anomaly'], color='gray')
+## matplotlib is used to make the line graph
 plt.ylabel('Temperature Anomalies in Celsius')
 plt.xlabel('Years')
 plt.title('Change in Temperatures')
 
-# TODO #3: Plot LOWESS in a line graph
-
+## Plots Anomaly and LOWESS on the line graph
+plt.plot(temp_data['Year'], temp_data['Anomaly'], color='gray')
+plt.plot(temp_data['Year'], temp_data['LOWESS'], color='blue')
 
 # TODO #4: Use matplotlib to make a bar chart
 
 
-# TODO #5: Calculate min, max, and avg anomaly 
-# and the corresponding min/max years
+# TODO #5: Calculate min, max, and avg anomaly and the corresponding min/max years
 
 # # #
 plt.show()
