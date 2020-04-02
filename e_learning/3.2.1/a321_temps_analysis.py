@@ -15,11 +15,15 @@ plt.title('Change in Temperatures')
 ## Plots Anomaly and LOWESS on the line graph
 plt.plot(temp_data['Year'], temp_data['Anomaly'], color='gray')
 plt.plot(temp_data['Year'], temp_data['LOWESS'], color='blue')
+#plt.show()
 
-# TODO #4: Use matplotlib to make a bar chart
-
+## matplotlib is used to make the bar chart
+plt.bar(temp_data['Year'], temp_data['Anomaly'], align='center', color='green')
+plt.ylabel('Temperature Anomalies in Celsius')
+plt.xlabel('Years')
+plt.title('Change in Temperatures')
+plt.show()
 
 # TODO #5: Calculate min, max, and avg anomaly and the corresponding min/max years
 
 # # #
-plt.show()
